@@ -1,0 +1,9 @@
+<?php
+
+return [
+    'database' => [
+        'dsn' => 'mysql:host=localhost;dbname=u979984487_frameimpacts',
+        'username' => 'u979984487_frameimpacts',
+        'password' => 'Frameimpacts@123',
+    ],
+];
