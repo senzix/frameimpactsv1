@@ -4,14 +4,14 @@ $team_members = [
     [
         'name' => 'S Kapthianmuan Ngaihte',
         'position' => 'Founder & Director',
-        'description' => 'An alumnus of TISS, highly motivated and dedicated social development practitioner.',
+        'description' => 'An alumnus of TISS, highly motivated and dedicated social development practitioner with extensive experience in community development and project management.',
         'image' => 'kapthianmuan.jpg',
         'social' => ['linkedin-in', 'twitter']
     ],
     [
         'name' => 'Lalhmangaih Hauzel',
-        'position' => 'Chairman of Board',
-        'description' => '15+ years driving transformative change across industries. Expertise in Strategic Planning.',
+        'position' => 'PhD (Candidate), MBA, MHA Chairman & Founder',
+        'description' => 'An alumni of IIT Bombay, Washington University at St. Louis, Missouri, USA and TISS, Mumbai. Over 16 years of professional experience in multinational corporations, driving transformative change, innovation and excellence across multiple industries and domains.',
         'image' => 'lalhmangaih.jpg',
         'social' => ['linkedin-in', 'twitter', 'github']
     ],

@@ -169,34 +169,6 @@
     </div>
   </div>
 </section>
-<section class="partners">
-  <div class="container">
-  <div class="section-title text-center mb-5">
-      <h2>Our Partners</h2>
-    </div>
-    <div class="partner-logos">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="client-outer">
-              <div class="slick-slider client-slider">
-                <?php
-                $partners = ['dci', 'highland', 'neicord', 'prime', 'rilum'];
-                foreach ($partners as $partner) { ?>
-                  <div class="wow-outer" style="height:60px;width:10px;">
-                    <div class="item wow slideInLeft" data-wow-delay=".1s">
-                      <img src='img/client/<?= $partner ?>.png' alt="ucfirst(<?= $partner ?>) ">
-                    </div>
-                  </div>
-                <?php } ?>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <?php if (!empty($recentPosts)): ?>
   <section class="blog">
