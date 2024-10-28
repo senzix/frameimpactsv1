@@ -97,6 +97,7 @@ $router->addRoute('/industry', 'controllers/industry.php');
 $router->addRoute('/proneurship', 'controllers/proneurship.php');
 $router->addRoute('/our-team', 'controllers/our-team.php');
 $router->addRoute('/articles', 'controllers/articles.php');
+$router->addRoute('/ourWork', 'controllers/ourWork.php');
 $router->addRoute('/post', 'controllers/post.php', ['GET', 'POST']);
 $router->addRoute('/contact', 'controllers/contactus.php', ['GET', 'POST']);
 $router->addRoute('/classroom', 'controllers/classroom.php', ['GET', 'POST']);

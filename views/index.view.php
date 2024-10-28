@@ -62,7 +62,7 @@
 <section class="about-faq sec-padd py-5">
   <div class="container">
     <div class="row">
-      <div class="col-md-6 col-sm-12 col-xs-12">
+      <div class="col-md-6 col-sm-12 col-xs-12 mt-4">
         <div class="about-info">
           <h2>About Us
           </h2>
@@ -84,7 +84,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-6 col-sm-12 col-xs-12">
+      <div class="col-md-6 col-sm-12 col-xs-12 mt-4">
       <h2>FAQs
           </h2>
         <div id="main">

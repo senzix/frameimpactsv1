@@ -79,7 +79,7 @@
 								<a class="nav-link" href="/articles">Articles</a>
 							</li>
 							<li class="nav-item mr-2">
-								<a class="nav-link" href="/articles">Our Work</a>
+								<a class="nav-link" href="/ourWork">Our Work</a>
 							</li>
 							<li class="nav-item mr-2">
 								<a class="nav-link" href="/contact">Contact Us</a>
