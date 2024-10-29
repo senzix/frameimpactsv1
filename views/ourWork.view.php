@@ -23,7 +23,7 @@
             <!-- Work Item 2 -->
             <div class="work-item">
                 <div class="work-image">
-                    <img src="/img/ourWork/capacity.webp" alt="NEST Training">
+                    <img src="/img/ourWork/nest.jpg" alt="NEST Training">
                 </div>
                 <div class="work-content">
                     <h3>NEST</h3>
@@ -110,7 +110,6 @@
                 </div>
             </div>
         </div>
-
         <div class="our-work__header">
             <h2 class="our-work__title">Co-Design & Support</h2>
             <p class="our-work__subtitle">Explore our recent co-design and support projects</p>
@@ -124,6 +123,17 @@
                 <div class="work-content">
                     <h3>RILUM FOUNDATION</h3>
                     <p>Rilum Foundation for Sustainable Development is an NGO from Smit Village, Shillong Peri Phery, East Khasi Hills. We have been closely working together hand in hand. The engagement with Rilum Foundation has been tactical based on trust, and it has been beneficial for both parties. We have shared and learned from one another of multi-dimensional aspects.</p>
+                    <span class="work-category">Co-Design & Support</span>
+                </div>
+            </div>
+            <!-- Work Item 10 -->
+            <div class="work-item">
+                <div class="work-image">
+                    <img src="/img/ourWork/cci.jpg" alt="CCI">
+                </div>
+                <div class="work-content">
+                    <h3>CCI</h3>
+                    <p>CCI (Center For Community Initiatives) is an organization that works towards the upliftment of the poor and marginalized. Our collaboration with CCI has been instrumental in bringing about positive change in the lives of many. Together, we have implemented projects that focus on education, healthcare, and community development.</p>
                     <span class="work-category">Co-Design & Support</span>
                 </div>
             </div>
