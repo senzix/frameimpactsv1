@@ -132,8 +132,8 @@
                     <img src="/img/ourWork/cci.jpg" alt="CCI">
                 </div>
                 <div class="work-content">
-                    <h3>CCI</h3>
-                    <p>CCI (Center For Community Initiatives) is an organization that works towards the upliftment of the poor and marginalized. Our collaboration with CCI has been instrumental in bringing about positive change in the lives of many. Together, we have implemented projects that focus on education, healthcare, and community development.</p>
+                    <h3>Upliftment of PWD</h3>
+                    <p>CCI (Center For Community Initiatives) is an organization that works towards the upliftment of the poor and marginalized. Our collaboration with CCI has been instrumental in bringing about positive change in the lives of many. Together, we have implemented projects that focus on Special education and community development through livelihoid initiatives.</p>
                     <span class="work-category">Co-Design & Support</span>
                 </div>
             </div>
@@ -147,7 +147,7 @@
             <!-- Work Item 10 -->
             <div class="work-item">
                 <div class="work-image">
-                    <img src="/img/ourWork/research.webp" alt="Abandoned Single Mothers Study">
+                    <img src="/img/ourWork/research.jpg" alt="Abandoned Single Mothers Study">
                 </div>
                 <div class="work-content">
                     <h3>Abandoned Single Mothers in East Khasi Hills</h3>
