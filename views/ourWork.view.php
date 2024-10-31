@@ -147,7 +147,7 @@
             <!-- Work Item 10 -->
             <div class="work-item">
                 <div class="work-image">
-                    <img src="/img/ourWork/research.jpg" alt="Abandoned Single Mothers Study">
+                    <img src="/img/ourWork/research1.jpg" alt="Abandoned Single Mothers Study">
                 </div>
                 <div class="work-content">
                     <h3>Abandoned Single Mothers in East Khasi Hills</h3>
