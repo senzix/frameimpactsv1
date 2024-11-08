@@ -121,7 +121,7 @@
                     <img src="/img/ourWork/designsupport.webp" alt="Rilum Foundation">
                 </div>
                 <div class="work-content">
-                    <h3>RILUM FOUNDATION</h3>
+                    <h3>Rilum Foundation</h3>
                     <p>Rilum Foundation for Sustainable Development is an NGO from Smit Village, Shillong Peri Phery, East Khasi Hills. We have been closely working together hand in hand. The engagement with Rilum Foundation has been tactical based on trust, and it has been beneficial for both parties. We have shared and learned from one another of multi-dimensional aspects.</p>
                     <span class="work-category">Co-Design & Support</span>
                 </div>
