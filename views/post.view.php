@@ -37,7 +37,7 @@
                         </div>
                     <?php endif; ?>
 
-                    <div class="elegant-post__content ck-content">
+                    <div class="elegant-post__content">
                         <?= $post['content'] // CKEditor content is already sanitized ?>
                     </div>
                 </article>
