@@ -20,7 +20,11 @@
                                 </div>
                                 <?php else: ?>
                                 <?php endif; ?>
-                                <div class="col-md-8">
+                                <?php if ($note['image_path']): ?>
+                                   <div class="col-md-8">
+                                    <?php else: ?>
+                                    <div class="col-md-12">
+                                    <?php endif; ?>
                                     <div class="elegant-article__content">
                                         <h2 class="elegant-article__title">
                                             <a href="post?p_id=<?= $note['post_id'] ?>">

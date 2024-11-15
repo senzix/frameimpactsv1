@@ -129,6 +129,30 @@ switch ($action) {
 
     case 'edit_post':
         $post_id = $_GET['post_id'];
+        
+        // Handle image deletion
+        if (isset($_POST['delete_image'])) {
+            // Get current image path
+            $current_image = $db->query(
+                "SELECT image_path FROM blogs WHERE post_id = :post_id",
+                [':post_id' => $post_id]
+            )->fetchColumn();
+            
+            // Delete physical file if it exists
+            if ($current_image && file_exists($current_image)) {
+                unlink($current_image);
+            }
+            
+            // Update database to remove image reference
+            $db->query(
+                "UPDATE blogs SET image_path = NULL WHERE post_id = :post_id",
+                [':post_id' => $post_id]
+            );
+            
+            header("Location: admin?action=edit_post&post_id=" . $post_id);
+            exit;
+        }
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $title = $_POST['title'];
             $content = $_POST['content'];
@@ -138,6 +162,16 @@ switch ($action) {
             // Handle image upload
             $image_path = null;
             if (!empty($_FILES['image']['name'])) {
+                // Delete old image if it exists
+                $current_image = $db->query(
+                    "SELECT image_path FROM blogs WHERE post_id = :post_id",
+                    [':post_id' => $post_id]
+                )->fetchColumn();
+                
+                if ($current_image && file_exists($current_image)) {
+                    unlink($current_image);
+                }
+                
                 $upload_dir = "img/upload/";
                 $image_path = $upload_dir . time() . '_' . $_FILES['image']['name'];
                 move_uploaded_file($_FILES['image']['tmp_name'], $image_path);

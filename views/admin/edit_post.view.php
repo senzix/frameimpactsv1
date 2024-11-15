@@ -22,6 +22,13 @@
                          alt="Current featured image" 
                          class="img-thumbnail" 
                          style="max-height: 100px;">
+                    <form action="?action=edit_post&post_id=<?= $post['post_id'] ?>" method="POST" class="d-inline">
+                        <input type="hidden" name="delete_image" value="1">
+                        <button type="submit" class="btn btn-danger btn-sm ms-2" 
+                                onclick="return confirm('Are you sure you want to delete this image?')">
+                            Delete Image
+                        </button>
+                    </form>
                 </div>
             <?php endif; ?>
         </div>
