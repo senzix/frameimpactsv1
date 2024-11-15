@@ -33,9 +33,9 @@
                                                 <span class="mx-2">•</span>
                                                 <span><i class="fas fa-user"></i> <?= htmlspecialchars($note['author_name']) ?></span>
                                             <?php endif; ?>
-                                            <?php if (isset($note['views'])): ?>
+                                            <?php if (isset($note['views']) && is_numeric($note['views'])): ?>
                                                 <span class="mx-2">•</span>
-                                                <span><i class="fas fa-eye"></i> <?= number_format($note['views']) ?> views</span>
+                                                <span><i class="fas fa-eye"></i> <?= number_format((int)$note['views']) ?> views</span>
                                             <?php endif; ?>
                                         </div>
 
