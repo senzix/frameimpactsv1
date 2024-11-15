@@ -10,15 +10,16 @@
                     <?php foreach ($notes as $note): ?>
                         <article class="elegant-article">
                             <div class="row g-0">
+                            <?php if ($note['image_path']): ?>
                                 <div class="col-md-4">
                                     <div class="elegant-article__image-container">
-                                        <?php if ($note['image_path']): ?>
                                             <img class="elegant-article__image" 
                                                  src="<?= htmlspecialchars($note['image_path']) ?>" 
-                                                 alt="<?= htmlspecialchars($note['title']) ?>" />
-                                        <?php endif; ?>
+                                                 alt="<?= htmlspecialchars($note['title']) ?>" />  
                                     </div>
                                 </div>
+                                <?php else: ?>
+                                <?php endif; ?>
                                 <div class="col-md-8">
                                     <div class="elegant-article__content">
                                         <h2 class="elegant-article__title">
