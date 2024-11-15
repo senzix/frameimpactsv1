@@ -91,12 +91,34 @@ switch ($action) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $title = $_POST['title'];
             $content = $_POST['content'];
-            $image_path = $_FILES['image']['name'] ? $_FILES['image']['name'] : null;
-            if ($image_path) {
-                move_uploaded_file($_FILES['image']['tmp_name'], "img/upload/" . $image_path);
+            $excerpt = $_POST['excerpt'] ?? null;
+            $is_draft = isset($_POST['draft']) ? 1 : 0;
+            
+            // Handle image upload
+            $image_path = null;
+            if (!empty($_FILES['image']['name'])) {
+                $upload_dir = "img/upload/";
+                $image_path = $upload_dir . time() . '_' . $_FILES['image']['name'];
+                move_uploaded_file($_FILES['image']['tmp_name'], $image_path);
             }
-            $query = "INSERT INTO blogs (title, content, image_path, created_at) VALUES (:title, :content, :image_path, NOW())";
-            $db->query($query, [':title' => $title, ':content' => $content, ':image_path' => $image_path]);
+
+            $query = "INSERT INTO blogs (
+                title, content, excerpt, image_path, 
+                is_draft, created_at, created_by
+            ) VALUES (
+                :title, :content, :excerpt, :image_path, 
+                :is_draft, NOW(), :created_by
+            )";
+
+            $db->query($query, [
+                ':title' => $title,
+                ':content' => $content,
+                ':excerpt' => $excerpt,
+                ':image_path' => $image_path,
+                ':is_draft' => $is_draft,
+                ':created_by' => $_SESSION['admin_id']
+            ]);
+
             header("Location: admin?action=manage_posts");
             exit;
         }
@@ -110,16 +132,63 @@ switch ($action) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $title = $_POST['title'];
             $content = $_POST['content'];
-            $image_path = $_FILES['image']['name'] ? $_FILES['image']['name'] : null;
-            if ($image_path) {
-                move_uploaded_file($_FILES['image']['tmp_name'], "img/upload/" . $image_path);
+            $excerpt = $_POST['excerpt'] ?? null;
+            $is_draft = isset($_POST['draft']) ? 1 : 0;
+            
+            // Handle image upload
+            $image_path = null;
+            if (!empty($_FILES['image']['name'])) {
+                $upload_dir = "img/upload/";
+                $image_path = $upload_dir . time() . '_' . $_FILES['image']['name'];
+                move_uploaded_file($_FILES['image']['tmp_name'], $image_path);
+                
+                // Update query with new image
+                $query = "UPDATE blogs SET 
+                    title = :title, 
+                    content = :content, 
+                    excerpt = :excerpt,
+                    image_path = :image_path,
+                    is_draft = :is_draft,
+                    updated_at = NOW() 
+                    WHERE post_id = :post_id";
+                
+                $params = [
+                    ':title' => $title,
+                    ':content' => $content,
+                    ':excerpt' => $excerpt,
+                    ':image_path' => $image_path,
+                    ':is_draft' => $is_draft,
+                    ':post_id' => $post_id
+                ];
+            } else {
+                // Update query without changing image
+                $query = "UPDATE blogs SET 
+                    title = :title, 
+                    content = :content, 
+                    excerpt = :excerpt,
+                    is_draft = :is_draft,
+                    updated_at = NOW() 
+                    WHERE post_id = :post_id";
+                
+                $params = [
+                    ':title' => $title,
+                    ':content' => $content,
+                    ':excerpt' => $excerpt,
+                    ':is_draft' => $is_draft,
+                    ':post_id' => $post_id
+                ];
             }
-            $query = "UPDATE blogs SET title = :title, content = :content, image_path = :image_path, updated_at = NOW() WHERE post_id = :post_id";
-            $db->query($query, [':title' => $title, ':content' => $content, ':image_path' => $image_path, ':post_id' => $post_id]);
+            
+            $db->query($query, $params);
             header("Location: admin?action=manage_posts");
             exit;
         }
-        $post = $db->query("SELECT * FROM blogs WHERE post_id = :post_id", [':post_id' => $post_id])->fetch();
+        
+        $post = $db->query(
+            "SELECT * FROM blogs WHERE post_id = :post_id",
+            [':post_id' => $post_id]
+        )->fetch();
+        
         ob_start();
         require 'views/admin/edit_post.view.php';
         $content = ob_get_clean();
@@ -643,6 +712,27 @@ switch ($action) {
         session_destroy();
         header("Location: /");
         exit;
+
+    case 'toggle_post_status':
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $post_id = $_POST['post_id'];
+            // Get current status
+            $current_status = $db->query(
+                "SELECT is_draft FROM blogs WHERE post_id = :post_id",
+                [':post_id' => $post_id]
+            )->fetchColumn();
+            
+            // Toggle status
+            $new_status = $current_status ? 0 : 1;
+            $db->query(
+                "UPDATE blogs SET is_draft = :is_draft WHERE post_id = :post_id",
+                [':is_draft' => $new_status, ':post_id' => $post_id]
+            );
+            
+            header("Location: admin?action=manage_posts");
+            exit;
+        }
+        break;
 
     default:
         ob_start();
